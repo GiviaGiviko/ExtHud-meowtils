@@ -1,0 +1,42 @@
+# Gradle
+.gradle/
+build/
+out/
+bin/
+
+# Forge run directory
+run/
+
+# Logs
+logs/
+*.log
+
+# Crash reports
+crash-reports/
+
+# Java
+*.class
+*.jar
+*.war
+*.ear
+
+# IDEs
+.idea/
+*.iml
+
+# VS Code
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*.swo
+
+# Local environment
+.env
