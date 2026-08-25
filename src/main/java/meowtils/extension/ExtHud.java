@@ -9,11 +9,16 @@ import wtf.tatp.meowtils.event.RenderGameOverlayEvent;
 import wtf.tatp.meowtils.event.api.EventTarget;
 import wtf.tatp.meowtils.extension.Extension;
 import wtf.tatp.meowtils.gui.GuiUtil;
+import wtf.tatp.meowtils.gui.Module;
 import wtf.tatp.meowtils.gui.hudeditor.HudEntry;
 import wtf.tatp.meowtils.gui.ColorLink;
 import wtf.tatp.meowtils.gui.values.ExpandValue;
 
 public class ExtHud extends Extension {
+
+    public static class ModuleFilter {
+        @Config public boolean hidden = false;
+    }
 
     @Config public boolean enabled = false;
     @Config public int key = 0;
@@ -49,6 +54,10 @@ public class ExtHud extends Extension {
         
         toggle("Animations", "animations");
 
+        expand("Hide Extensions", (ExpandValue e) -> {
+            logic.setupExtensionFilters(e);
+        });
+
         expand("Background", (ExpandValue e) -> {
             ColorLink bgColor = linkColor("bgRed", "bgGreen", "bgBlue");
             e.color("Color", bgColor);
@@ -70,6 +79,10 @@ public class ExtHud extends Extension {
             posX = 4;
             posY = 3;
         });
+    }
+
+    public boolean isModuleHidden(Module module) {
+        return logic.isModuleHidden(module);
     }
 
     @Override
